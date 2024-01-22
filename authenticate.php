@@ -29,6 +29,8 @@ $stmt->execute([$username]);
 
 $user = $stmt->fetch();
 
+//dd($user);
+
 // Verify password
 $authenticated = password_verify($password, $user['password']);
 
