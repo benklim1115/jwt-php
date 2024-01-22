@@ -39,6 +39,7 @@ if (!$authenticated) {
     die('Auth failed');
 }
 
+/* Begin generating JWT */
 // Generate a key (add .env and container at the end of the lesson)
 $key = 'B1XbsUqw0LAfTcryj73xH76t+JfIthWQ/2GJQIptvqg=';
 
