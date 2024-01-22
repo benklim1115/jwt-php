@@ -40,6 +40,7 @@ if (!$authenticated) {
 }
 
 /* Begin generating JWT */
+// Go to jwt.io and use key in signature to verify user
 // Generate a key (add .env and container at the end of the lesson)
 $key = 'B1XbsUqw0LAfTcryj73xH76t+JfIthWQ/2GJQIptvqg=';
 
