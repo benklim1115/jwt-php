@@ -1,0 +1,25 @@
+Used for authentication and authorization purposes
+
+Use cases:
+-User authentication - user logs in, server generates a JWT, encodes users identity
+Client sends their token in the headers
+-Can be used for SSO
+-API authentication - authentication for requests
+
+Workflow:
+-User first needs to authenticate through the server
+Client sends POST with user credentials, server validates credentials, 
+signs it and sends back to user
+-Client stores JWT includes in authorization header and is used in future http requests
+
+<!-- Creating one --->
+<!-- Go to jwt.io -> Debugger --->
+<!---
+Three parts needed:
+-Header - type of token, and signing algorithm
+-Payload - claims, statements about an entity (user), registered claims 
+like server info, custom claims like user info we pass in, private claims
+-Signature - contains the header, payload and combines using signature with
+encryption with the secret used by server
+--->
+
