@@ -1,5 +1,5 @@
 <?php
-
+ 
 test('debugs are removed')
     ->expect(['dd', 'dump', 'var_dump'])
     ->not->toBeUsed();
