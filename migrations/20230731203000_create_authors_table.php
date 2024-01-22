@@ -1,5 +1,5 @@
 <?php
-
+ 
 use App\Database\MigrationInterface;
 
 return new class implements MigrationInterface
