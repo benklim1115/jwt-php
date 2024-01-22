@@ -1,14 +1,18 @@
 <?php
 
 // Get Firebase JWT
+//run ->  composer require firebase/php-jwt
 
 // Autoloading
 require 'vendor/autoload.php';
 
 // Container
+//Need for your connection
 $container = require 'config/services.php';
 
 // Obtain username and password
+//execute from command line -> php authenticate.php bklimchock pa55word
+//dd($argv);
 $username = $argv[1];
 $password = $argv[2];
 

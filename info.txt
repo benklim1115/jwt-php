@@ -23,3 +23,6 @@ like server info, custom claims like user info we pass in, private claims
 encryption with the secret used by server
 --->
 
+Go to Packagist to get Firebase
+-https://packagist.org/
+
