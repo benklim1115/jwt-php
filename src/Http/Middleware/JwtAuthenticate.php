@@ -10,8 +10,27 @@ use App\Http\Request;
 
 class JwtAuthenticate implements MiddlewareInterface{
 
+    //constructor
+    public function __construct(private string $jwtSecretKey) {
+        
+    }
+
+
     public function process(Request $request, RequestHandlerInterface $handler): Response {
-        //implement process() method
+       
+        //Get the Authorization header
+
+
+        //Return failed auth if missing
+
+
+        //Isolate the token (remove Bearer)
+
+
+        //Try to decode
+        //Do what you want with claims then pass back to RequestHandler if possible
+        //catch whatever exceptions you wanna handle individually
+
         
     }
 
