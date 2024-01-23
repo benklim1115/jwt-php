@@ -35,4 +35,4 @@ test("JWT authentication produces the correct response", function () {
         ->and($response->getStatusCode())->toBe(401)
         ->and($response->getHeaders()["WWW-Authenticate"])->toBe("Bearer error='invalid_token'");
 
-}
+});
