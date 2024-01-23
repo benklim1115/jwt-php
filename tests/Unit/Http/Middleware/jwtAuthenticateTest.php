@@ -6,7 +6,11 @@ test("JWT authentication produces the correct response", function () {
 
 
     //Request
-
+    $request = \App\Http\Request::create(
+        string $method,
+        string $uri,
+        array $server [],
+    );
 
     //Middleware
 
