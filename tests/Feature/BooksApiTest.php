@@ -16,6 +16,21 @@ it('retrieves the correct book data from the books API', function(
     array $authorData
 ) {
     // ARRANGE
+    $key = $this->container->get("jwtSecretKey");
+
+    $payload = [
+        'iss' => 'https://books-api.org',
+        'aud' => 'https://books-api.com',
+        'iat' => 1698610685,
+        'nbf' => 1698610685,
+        'data' => [
+            'username' => "benklimchock",
+            'plan' => "premium"
+        ]
+    ];
+
+    $jwt = \Firebase\JWT\JWT::encode($payload, $key, "HS256");
+
     // Data fixtures
     // Create Author object
     $author = Author::create(
