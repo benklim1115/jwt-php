@@ -60,7 +60,7 @@ it('retrieves the correct book data from the books API', function(
     $bookMapper->save($book);
 
     // ACT
-    $response = $this->json(method: 'GET', uri: $uri);
+    $response = $this->json(method: 'GET', uri: $uri, headers: ["HTTP_AUTHORIZATION" => $jwt]);
 
     // ASSERT
     expect($response->getStatusCode())->toBeInt()->toBe(200)
