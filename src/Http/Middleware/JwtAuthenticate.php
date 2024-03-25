@@ -6,6 +6,11 @@ namespace App\Http\Middleware;
 
 use App\Http\Response;
 use App\Http\Request;
+use DomainException;
+use Firebase\JWT\ExpiredException;
+use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
+use UnexpectedValueException;
 
 
 class JwtAuthenticate implements MiddlewareInterface{
@@ -41,7 +46,7 @@ class JwtAuthenticate implements MiddlewareInterface{
         } catch(ExpiredException) {
             //catch whatever exceptions you wanna handle individually
             return new Response("Auth token has expired", 401, ["WWW-Authenticate" => "Bearer error='missing_token'"]);
-        } catch(\UnexpectedValueException|\DomainException) {
+        } catch(UnexpectedValueException|DomainException) {
             return new Response("Auth token is invalid", 401, ["WWW-Authenticate" => "Bearer error='invalid_token'"]);
         }
         
