@@ -34,7 +34,13 @@ class JwtAuthenticate implements MiddlewareInterface{
         $token = preg_replace("/^Bearer\s*/", "", $authHeader);
 
         //Try to decode
-        //Do what you want with claims then pass back to RequestHandler if possible
+        try{
+            $decoded = JWT::decode($token, new Key($this->jwtSecretKey, "HS256"));
+            //Do what you want with claims then pass back to RequestHandler if possible
+            return $handler->handle($request);
+        }
+
+
         //catch whatever exceptions you wanna handle individually
 
         
