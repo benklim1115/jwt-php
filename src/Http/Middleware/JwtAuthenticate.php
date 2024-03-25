@@ -19,7 +19,7 @@ class JwtAuthenticate implements MiddlewareInterface{
     public function process(Request $request, RequestHandlerInterface $handler): Response {
        
         //Get the Authorization header
-
+        $authHeader = $request->getServerVariable("HTTP_AUTHORIZATION");
 
         //Return failed auth if missing
 
