@@ -38,10 +38,14 @@ class JwtAuthenticate implements MiddlewareInterface{
             $decoded = JWT::decode($token, new Key($this->jwtSecretKey, "HS256"));
             //Do what you want with claims then pass back to RequestHandler if possible
             return $handler->handle($request);
+        } catch(ExpiredException) {
+            //catch whatever exceptions you wanna handle individually
+            return new Response("Auth token has expired", 401, ["WWW-Authenticate" => "Bearer error='missing_token'"]);
+        } catch(\UnexpectedValueException|\DomainException) {
+            return new Response("Auth token is invalid", 401, ["WWW-Authenticate" => "Bearer error='invalid_token'"]);
         }
+        
 
-
-        //catch whatever exceptions you wanna handle individually
 
         
     }
