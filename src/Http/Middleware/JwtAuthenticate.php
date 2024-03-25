@@ -22,10 +22,16 @@ class JwtAuthenticate implements MiddlewareInterface{
         $authHeader = $request->getServerVariable("HTTP_AUTHORIZATION");
 
         //Return failed auth if missing
-
+        if(!$authHeader) {
+            return new Response(
+                "Auth token missing",
+                401,
+                ["WWW-Authenticate" => "Bearer error='missing_token'"]
+            );
+        }
 
         //Isolate the token (remove Bearer)
-
+        $token = preg_replace("/^Bearer\s*/", "", $authHeader);
 
         //Try to decode
         //Do what you want with claims then pass back to RequestHandler if possible
